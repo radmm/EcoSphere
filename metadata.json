@@ -1,0 +1,6 @@
+{
+  "name": "Carbon Footprint Tracker",
+  "description": "An interactive full-stack carbon footprint calculator, habits logger, and AI sustainability coach designed to help individuals understand, track, and reduce their carbon footprint through smart insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
