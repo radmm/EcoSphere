@@ -760,7 +760,7 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="p-3 bg-cream-50 border border-fainted-border rounded-xl">
-                        <p className="text-xs italic text-fainted-gray font-serif leading-relaxed">
+                        <p className="text-xs italic text-fainted-gray font-sans leading-relaxed">
                           "Your transport choices represent {Math.round((summary.transportDailyKg / summary.totalDailyKg) * 100)}% of your daily impact."
                         </p>
                       </div>
