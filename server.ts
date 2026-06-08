@@ -117,7 +117,6 @@ Keep your responses organized using markdown formatting, bullet points, and high
       console.error('Gemini SDK integration exception:', err);
       res.status(500).json({
         error: 'AI Sustainability Coach is temporarily recharging. Please try again.',
-        details: err.message,
       });
     }
   });

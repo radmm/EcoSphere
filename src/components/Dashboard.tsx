@@ -213,16 +213,17 @@ export default function Dashboard({
               </p>
             </div>
             <div className="flex flex-wrap gap-3 text-xs">
-              <span className="flex items-center gap-1.5"><button className="w-3 h-3 bg-indigo-500 rounded-sm" />Mobility</span>
-              <span className="flex items-center gap-1.5"><button className="w-3 h-3 bg-amber-500 rounded-sm" />Energy</span>
-              <span className="flex items-center gap-1.5"><button className="w-3 h-3 bg-emerald-500 rounded-sm" />Food</span>
-              <span className="flex items-center gap-1.5"><button className="w-3 h-3 bg-rose-500 rounded-sm" />Goods</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-indigo-500 rounded-sm inline-block" aria-hidden="true" />Mobility</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-amber-500 rounded-sm inline-block" aria-hidden="true" />Energy</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-emerald-500 rounded-sm inline-block" aria-hidden="true" />Food</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-rose-500 rounded-sm inline-block" aria-hidden="true" />Goods</span>
             </div>
           </div>
 
           <div className="relative aspect-video max-h-72 w-full flex items-center justify-center">
             {/* Elegant Custom Intersecting SVG Bar chart with grids */}
-            <svg viewBox="0 0 600 240" className="w-full h-full text-slate-200">
+            <svg viewBox="0 0 600 240" className="w-full h-full text-slate-200" aria-label="Sector carbon emissions breakdown chart" role="img">
+              <title>Sector carbon emissions breakdown chart</title>
               {/* Grids lines */}
               <line x1="40" y1="20" x2="580" y2="20" stroke="currentColor" strokeDasharray="3,3" strokeWidth="0.8" />
               <line x1="40" y1="70" x2="580" y2="70" stroke="currentColor" strokeDasharray="3,3" strokeWidth="0.8" />

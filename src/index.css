@@ -12,14 +12,14 @@
   --color-cream-200: #EBE5DB;
   
   --color-fainted-black: #2C2A29;
-  --color-fainted-gray: #7A7571;
-  --color-fainted-border: #E6E0D5;
+  --color-fainted-gray: #54504D;
+  --color-fainted-border: #E0D9CD;
   
-  --color-fainted-red: #D27265;
-  --color-fainted-blue: #6C8FA2;
-  --color-fainted-orange: #CE865A;
-  --color-fainted-yellow: #CCA252;
-  --color-fainted-green: #6C9472;
+  --color-fainted-red: #AF4335;
+  --color-fainted-blue: #456A7F;
+  --color-fainted-orange: #9F592D;
+  --color-fainted-yellow: #88641B;
+  --color-fainted-green: #416D47;
 }
 
 body {

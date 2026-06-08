@@ -267,11 +267,13 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
             </div>
 
             {/* Navigation Tabs with fainted offsets */}
-            <nav className="hidden md:flex gap-6 text-sm font-medium text-fainted-gray items-center">
+            <nav role="tablist" aria-label="Application sections" className="hidden md:flex gap-6 text-sm font-medium text-fainted-gray items-center">
               <button
                 id="btn-tab-dashboard"
+                role="tab"
+                aria-selected={activeTab === 'dashboard'}
                 onClick={() => setActiveTab('dashboard')}
-                className={`py-2 px-1 transition-all border-b-2 font-display ${
+                className={`py-2 px-1 transition-all border-b-2 font-display cursor-pointer ${
                   activeTab === 'dashboard'
                     ? 'text-fainted-green border-fainted-green font-semibold'
                     : 'border-transparent text-fainted-gray hover:text-fainted-black'
@@ -281,8 +283,10 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
               </button>
               <button
                 id="btn-tab-calculator"
+                role="tab"
+                aria-selected={activeTab === 'calculator'}
                 onClick={() => setActiveTab('calculator')}
-                className={`py-2 px-1 transition-all border-b-2 font-display ${
+                className={`py-2 px-1 transition-all border-b-2 font-display cursor-pointer ${
                   activeTab === 'calculator'
                     ? 'text-fainted-green border-fainted-green font-semibold'
                     : 'border-transparent text-fainted-gray hover:text-fainted-black'
@@ -292,8 +296,10 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
               </button>
               <button
                 id="btn-tab-actions"
+                role="tab"
+                aria-selected={activeTab === 'actions'}
                 onClick={() => setActiveTab('actions')}
-                className={`py-2 px-1 transition-all border-b-2 font-display ${
+                className={`py-2 px-1 transition-all border-b-2 font-display cursor-pointer ${
                   activeTab === 'actions'
                     ? 'text-fainted-green border-fainted-green font-semibold'
                     : 'border-transparent text-fainted-gray hover:text-fainted-black'
@@ -303,8 +309,10 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
               </button>
               <button
                 id="btn-tab-coach"
+                role="tab"
+                aria-selected={activeTab === 'coach'}
                 onClick={() => setActiveTab('coach')}
-                className={`py-2 px-1 transition-all border-b-2 font-display ${
+                className={`py-2 px-1 transition-all border-b-2 font-display cursor-pointer ${
                   activeTab === 'coach'
                     ? 'text-fainted-green border-fainted-green font-semibold'
                     : 'border-transparent text-fainted-gray hover:text-fainted-black'
@@ -422,13 +430,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-car-commute" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Primary Car Commuting Frequency
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Current weekly mileage: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.carKmWeekly} km</span>
                         </div>
                         <input
+                          id="input-car-commute"
                           type="range"
                           min="0"
                           max="800"
@@ -444,13 +453,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="select-car-type" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Vehicle Engine or Fuel Type
                         </label>
                         <select
+                          id="select-car-type"
                           value={footprintData.carType}
                           onChange={(e) => updateFootprintField('carType', e.target.value)}
-                          className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-blue bg-cream-100 text-fainted-black"
+                          className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-blue bg-cream-100 text-fainted-black animate-none"
                         >
                           <option value="gasoline">Gasoline or Diesel (High 0.22kg/km)</option>
                           <option value="hybrid">Standard Hybrid (Moderate 0.12kg/km)</option>
@@ -460,13 +470,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-public-transit" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Weekly Public Transit Commuting Hours
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Bus, subway, train: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.publicTransitHoursWeekly} hours</span>
                         </div>
                         <input
+                          id="input-public-transit"
                           type="range"
                           min="0"
                           max="40"
@@ -481,13 +492,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-aviation" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Annual Commercial Aviation Hours
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Estimated flight length: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.flightsHoursYearly} hours</span>
                         </div>
                         <input
+                          id="input-aviation"
                           type="range"
                           min="0"
                           max="100"
@@ -512,13 +524,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-electricity" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Electricity Consumed Monthly (kWh)
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Household billing metrics: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.electricityMonthlyKwh} kWh</span>
                         </div>
                         <input
+                          id="input-electricity"
                           type="range"
                           min="0"
                           max="1200"
@@ -534,13 +547,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-gas" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Natural Gas Therms Billing
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Utility gas usage: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.gasMonthlyTherms} Therms</span>
                         </div>
                         <input
+                          id="input-gas"
                           type="range"
                           min="0"
                           max="100"
@@ -555,13 +569,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-clean-energy" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Renewable Clean Energy Percentage
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Solar power or clean grid option: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.cleanEnergyPercentage}% option</span>
                         </div>
                         <input
+                          id="input-clean-energy"
                           type="range"
                           min="0"
                           max="100"
@@ -577,10 +592,11 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="select-household-size" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Household Co-Habitants Size
                         </label>
                         <select
+                          id="select-household-size"
                           value={footprintData.householdSize}
                           onChange={(e) => updateFootprintField('householdSize', parseInt(e.target.value))}
                           className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-orange bg-cream-100 text-fainted-black"
@@ -604,10 +620,11 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="select-diet-type" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Typical Dietary Habit
                         </label>
                         <select
+                          id="select-diet-type"
                           value={footprintData.dietType}
                           onChange={(e) => updateFootprintField('dietType', e.target.value)}
                           className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-green bg-cream-100 text-fainted-black"
@@ -620,10 +637,11 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="select-food-waste" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Food Scrap / Waste Level
                         </label>
                         <select
+                          id="select-food-waste"
                           value={footprintData.foodWasteLevel}
                           onChange={(e) => updateFootprintField('foodWasteLevel', e.target.value)}
                           className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-green bg-cream-100 text-fainted-black"
@@ -635,13 +653,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2 md:col-span-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-local-food" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Seasonal or Organic/Local Crops Purchasing
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Percent of groceries sourced locally: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.localFoodPercentage}%</span>
                         </div>
                         <input
+                          id="input-local-food"
                           type="range"
                           min="0"
                           max="100"
@@ -667,13 +686,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-clothing" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Monthly Fashion / Clothing Purchases
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Estimated apparel items: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.clothingPurchasesMonthly} items per month</span>
                         </div>
                         <input
+                          id="input-clothing"
                           type="range"
                           min="0"
                           max="20"
@@ -688,13 +708,14 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="input-devices" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Annual Major Technological Purchases
                         </label>
                         <div className="text-xs text-fainted-gray mt-1">
                           Laptops, tablets, phones: <span className="font-bold text-fainted-black font-mono text-sm">{footprintData.devicePurchasesYearly} devices / year</span>
                         </div>
                         <input
+                          id="input-devices"
                           type="range"
                           min="0"
                           max="10"
@@ -709,10 +730,11 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       </div>
 
                       <div className="space-y-2 md:col-span-2">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
+                        <label htmlFor="select-recycling-rating" className="block text-xs font-semibold uppercase tracking-wider text-fainted-gray">
                           Household Recycling Rating
                         </label>
                         <select
+                          id="select-recycling-rating"
                           value={footprintData.recyclingRating}
                           onChange={(e) => updateFootprintField('recyclingRating', parseInt(e.target.value))}
                           className="w-full p-2.5 rounded-xl border border-fainted-border text-xs focus:outline-none focus:ring-1 focus:ring-fainted-red bg-cream-100 text-fainted-black"
@@ -1052,6 +1074,8 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       className="flex gap-2"
                     >
                       <input
+                        id="chat-input-field"
+                        aria-label="Ask Sustaina a sustainability question"
                         type="text"
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
@@ -1062,6 +1086,7 @@ Let's retry that shortly! I am fully equipped to guide you once connections rest
                       <button
                         type="submit"
                         disabled={isChatLoading || !chatInput.trim()}
+                        aria-label="Send message to Coach"
                         className="p-3 bg-fainted-green hover:bg-fainted-green/90 text-cream-55 disabled:bg-cream-200 disabled:text-fainted-gray rounded-xl transition duration-150 shrink-0 flex items-center justify-center cursor-pointer shadow-xs"
                       >
                         <Send size={15} />
