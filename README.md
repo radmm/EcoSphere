@@ -1,11 +1,16 @@
-<div align="center">
+## Why EcoSphere
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+The challenge asks for a solution that helps individuals understand, track,
+and reduce their carbon footprint through simple actions and personalized
+insights. EcoSphere maps directly to all three pillars:
 
-  <h1>Built with AI Studio</h2>
+- **Understand** — The sector calculator breaks down complex annual CO₂ data
+  into intuitive equivalencies like trees needed and vehicle miles driven
+- **Track** — The eco-actions logger lets users record daily habit changes
+  and watch their saved CO₂ accumulate over time
+- **Reduce** — Sustaina, the AI coach, ingests the user's live footprint and
+  habit data to deliver specific, ranked reduction plans rather than generic advice
 
-  <p>The fastest path from prompt to production with Gemini.</p>
-
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+The design prioritizes approachability: each calculator section is isolated,
+inputs have instant feedback, and AI insights are conversational rather than
+technical. Complexity lives in the backend logic, not the user experience.
